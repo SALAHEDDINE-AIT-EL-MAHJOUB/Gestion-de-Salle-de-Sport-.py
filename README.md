@@ -14,27 +14,7 @@ Une application web développée avec Flask pour gérer les abonnements et les c
 - Python 3.x
 - Les dépendances listées dans `requirements.txt`
 
-## Installation
 
-1. Clonez ce dépôt :
-```bash
-git clone [URL_DU_REPO]
-cd [NOM_DU_REPO]
-```
-
-2. Installez les dépendances :
-```bash
-pip install -r requirements.txt
-```
-
-3. Lancez l'application :
-```bash
-python app.py
-```
-ou utilisez le fichier batch fourni :
-```bash
-run_app.bat
-```
 
 ## Structure du Projet
 
