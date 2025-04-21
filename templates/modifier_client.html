@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Modifier le client</h2>
+<form method="POST" class="mt-4">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" value="{{ client.nom }}" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="prenom" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" value="{{ client.prenom }}" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="cin" class="form-label">CIN</label>
+            <input type="text" class="form-control" id="cin" name="cin" value="{{ client.cin }}" required pattern="[A-Za-z][A-Za-z0-9]{4,19}" title="Le CIN doit commencer par une lettre et contenir entre 5 et 20 caractères">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="telephone" class="form-label">Téléphone</label>
+            <input type="tel" class="form-control" id="telephone" name="telephone" value="{{ client.telephone }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="abonnement" class="form-label">Type d'abonnement</label>
+            <select class="form-select" id="abonnement" name="abonnement" required>
+                <option value="">Choisir une offre...</option>
+                {% for offre in offres %}
+                <option value="{{ offre.id }}" {% if client.abonnement == offre.nom %}selected{% endif %}>
+                    {{ offre.nom }} - {{ "%.2f"|format(offre.prix) }}dh ({{ offre.duree_mois }} mois)
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Annuler</a>
+    </div>
+</form>
+{% endblock %}

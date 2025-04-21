@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Modifier l'offre de paiement</h2>
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom de l'offre</label>
+            <input type="text" class="form-control" id="nom" name="nom" value="{{ offre.nom }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="prix" class="form-label">Prix (dh)</label>
+            <input type="number" step="0.01" class="form-control" id="prix" name="prix" value="{{ offre.prix }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="duree_mois" class="form-label">Durée (mois)</label>
+            <input type="number" class="form-control" id="duree_mois" name="duree_mois" value="{{ offre.duree_mois }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+        <a href="{{ url_for('liste_offres') }}" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
+{% endblock %}
