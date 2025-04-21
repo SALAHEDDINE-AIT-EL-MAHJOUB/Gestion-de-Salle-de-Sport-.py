@@ -45,6 +45,4 @@ Voici quelques aperçus de l'application :
 - Jinja2 - Moteur de templates
 - Bootstrap - Framework CSS (via templates)
 
-## Licence
 
-[À définir]
